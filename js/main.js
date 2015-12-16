@@ -2,7 +2,7 @@ jQuery(function($) {'use strict';
 
     $('#somos').load('somos.html');
     $('#staff').load('staff.html');
-    $('#media').load('media.html');
+    //$('#galeria').load('media.html');
     $('#noticias').load('noticias.html');
     $('#contacto').load('contacto.html');
     // Navigation Scroll
@@ -138,20 +138,20 @@ jQuery(function($) {'use strict';
     //smoothScroll
     smoothScroll.init();
 
-    // portfolio filter
+    // galeria filter
     $(window).load(function(){'use strict';
-        var $portfolio_selectors = $('.portfolio-filter >li>a');
-        var $portfolio = $('.portfolio-items');
-        $portfolio.isotope({
-            itemSelector : '.portfolio-item',
+        var $galeria_selectors = $('.galeria-filter >li>a');
+        var $galeria = $('.galeria-items');
+        $galeria.isotope({
+            itemSelector : '.galeria-item',
             layoutMode : 'fitRows'
         });
 
-        $portfolio_selectors.on('click', function(){
-            $portfolio_selectors.removeClass('active');
+        $galeria_selectors.on('click', function(){
+            $galeria_selectors.removeClass('active');
             $(this).addClass('active');
             var selector = $(this).attr('data-filter');
-            $portfolio.isotope({ filter: selector });
+            $galeria.isotope({ filter: selector });
             return false;
         });
     });
@@ -216,23 +216,4 @@ jQuery(function($) {'use strict';
     $("a[rel^='prettyPhoto']").prettyPhoto({
         social_tools: false
     });
-
-    ////Google Map
-    //var latitude = $('#google-map').data('latitude');
-    //var longitude = $('#google-map').data('longitude');
-    //function initialize_map() {
-    //    var myLatlng = new google.maps.LatLng(latitude,longitude);
-    //    var mapOptions = {
-    //        zoom: 16,
-    //        scrollwheel: false,
-    //        center: myLatlng
-    //    };
-    //    var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-    //    var marker = new google.maps.Marker({
-    //        position: myLatlng,
-    //        map: map
-    //    });
-    //}
-    //google.maps.event.addDomListener(window, 'load', initialize_map);
-
 });
